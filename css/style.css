@@ -15,7 +15,8 @@ body {
     margin: 0;
     padding: 0;
     transition: 0.5s;
-    background: #ffffff;
+    /*background: #1a237e;*/
+    background: #050c27;
     cursor: default;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
@@ -40,12 +41,20 @@ h3 {
     font-size: 1.25em;
 }
 
+.google {
+    margin-top: 10px;
+}
+
+.about {
+    text-align: left;
+}
+
 .resume {
-    width: 100%;
+    width: 1200px;
     background: #1a237e;
     color: #ffffff;
     margin: 20px auto;
-    box-shadow: 10px 10px #0e1442;
+    /*box-shadow: 10px 10px #0e1442;*/
     position: relative;
     display: flex;
 }
@@ -127,7 +136,7 @@ h3 {
 .resume .base .profile .info .job {
     margin-top: 10px;
     margin-bottom: 0;
-    font-size: 1.5em;
+    font-size: 1.1em;
     /*text-transform: lowercase;*/
     color: #283593;
 }
