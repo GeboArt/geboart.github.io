@@ -50,8 +50,7 @@ h3 {
 }
 
 .resume {
-    /*width: 1200px;*/
-    width: auto;
+    width: 1200px;
     background: #1a237e;
     color: #ffffff;
     margin: 20px auto;
@@ -525,7 +524,7 @@ h3 {
 }
 
 /*Responsive*/
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
     body{
         font-size: auto;
     }
