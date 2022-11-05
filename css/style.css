@@ -50,7 +50,8 @@ h3 {
 }
 
 .resume {
-    width: 1200px;
+    /*width: 1200px;*/
+    width: auto;
     background: #1a237e;
     color: #ffffff;
     margin: 20px auto;
@@ -524,43 +525,18 @@ h3 {
 }
 
 /*Responsive*/
-@media only screen and (max-width:768px){
-    .resume .func .work {
-        width: 20%;
-        background: #283593;
-        padding: 15px;
-        margin: 0 4% 15px 0;
+@media screen and (max-width: 1024px) {
+    body{
+        font-size: auto;
     }
-    
-    .resume .func .edu {
-        width: 20%;
-        background: #283593;
-        padding: 15px;
-    }
-    
-    .resume .func .skills-prog {
-        clear: both;
-        background: #283593;
-        padding: 15px;
-    }
-}
 
-@media screen and (min-width: 1024px) {
-  
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  
-}
-
-@media screen and (max-width: 767px) {
-    .resume .func {
-        width: 100%;
+    .resume .func .work, .resume .func .edu{
+        width: auto;
+        float: none;
     }
+
     .resume .func .work{
-        width: 100%;
+        padding: 15px 15px 15px 15px;
     }
-    .resume .func .edu{
-        width: 100%;
-    }
+    
 }
