@@ -239,10 +239,10 @@ h3 {
 // scottnix.com/placement-of-media-queries/
 @mixin breakpoint($point) {
     @if $point == medium {
-        @media only screen and (max-width: 768px)  { @content; }
+        @media only screen and (min-width: 640px)  { @content; }
     }
     @else if $point == large {
-        @media only screen and (min-width: 960px) { @content; }
+        @media only screen and (max-width: 900px) { @content; }
     }
     @else if $point { // allows custom breakpoints
         @media only screen and (min-width: $point) { @content; }
@@ -253,7 +253,7 @@ h3 {
     width: 70%;
     padding: 30px;
 
-    @include breakpoint(40em) {
+    @include breakpoint(640px) {
         display: inline;
         margin: 1em 0 0;
         .work{
@@ -262,8 +262,8 @@ h3 {
         }
         .edu{
             width: 100%;
-            float: right;
-        }
+            float: left;
+        }   
         .skills-prog{
             width: 100%;
         }
