@@ -1,4 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+$darkest-blue: #091160;
+$darker-blue: #283593;
+$dark-blue: #303f9f;
+$medium-blue: #3949ab;
+$light-blue: #3f51b5;
+$lighter-blue: #5c6bc0;
+$lightest-blue: #9fa8da;
+$white: #ffffff;
+$black: #0e1442;
+$orange: #ffb300;
+$yellow: #fdd835;
+$dark-pink: #ad1457;
+$light-pink: #d81b60;
+
 * {
     outline: none;
 }
@@ -6,17 +20,22 @@
 *,
 *:before,
 *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
     box-sizing: inherit;
 }
 
 html,
 body {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
+    margin: 0;
     padding: 0;
+    -webkit-transition: 0.5s;
     transition: 0.5s;
-    /*background: #1a237e;*/
-    background: #050c27;
+    background: $darkest-blue;
     cursor: default;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
@@ -24,7 +43,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #ffffff;
+    color: $white;
     display: block;
     transition-duration: 0.3s;
 }
@@ -34,27 +53,21 @@ ul {
     padding: 0;
 }
 
+
+/*h2 {}*/
+
 h3 {
-    color: #ffb300;
+    color: $orange;
     margin: 10px 0;
-    /*text-transform: lowercase;*/
     font-size: 1.25em;
-}
-
-.google {
-    margin-top: 10px;
-}
-
-.about {
-    text-align: left;
 }
 
 .resume {
     width: 1200px;
-    background: #1a237e;
-    color: #ffffff;
+    background: $darkest-blue;
+    color: $white;
     margin: 20px auto;
-    /*box-shadow: 10px 10px #0e1442;*/
+    /*box-shadow: 10px 10px $black;*/
     position: relative;
     display: flex;
 }
@@ -78,12 +91,12 @@ h3 {
 .resume .base {
     width: 30%;
     padding: 30px 15px;
-    background: #283593;
-    color: #ffffff;
+    background: $darker-blue;
+    color: $white;
 }
 
 .resume .base .profile {
-    background: #ffb300;
+    background: $orange;
     padding: 30px 15px 40px 15px;
     margin: -30px -15px 45px -15px;
     position: relative;
@@ -93,7 +106,7 @@ h3 {
 .resume .base .profile::after {
     content: "";
     position: absolute;
-    background: #303f9f;
+    background: $dark-blue;
     width: 100%;
     height: 30px;
     bottom: -15px;
@@ -117,28 +130,28 @@ h3 {
     font-size: 100px;
     text-align: center;
     margin: auto;
-    color: #283593;
+    color: $darker-blue;
 }
 
 .resume .base .profile .info {
     text-align: center;
-    color: #ffffff;
+    color: $white;
 }
 
 .resume .base .profile .info .name {
     margin-top: 10px;
     margin-bottom: 0;
     font-size: 1.75em;
-    /*text-transform: lowercase;*/
-    color: #1a237e;
+    
+    color: $darkest-blue;
 }
 
 .resume .base .profile .info .job {
     margin-top: 10px;
     margin-bottom: 0;
-    font-size: 1.1em;
-    /*text-transform: lowercase;*/
-    color: #283593;
+    font-size: 1.5em;
+    
+    color: $darker-blue;
 }
 
 .resume .base .contact div {
@@ -146,7 +159,7 @@ h3 {
 }
 
 .resume .base .contact div a:hover {
-    color: #fdd835;
+    color: $yellow;
 }
 
 .resume .base .contact div a:hover span::after {
@@ -154,11 +167,11 @@ h3 {
 }
 
 .resume .base .contact div:hover i {
-    color: #fdd835;
+    color: $yellow;
 }
 
 .resume .base .contact div i {
-    color: #ffb300;
+    color: $orange;
     width: 20px;
     height: 20px;
     font-size: 20px;
@@ -174,7 +187,7 @@ h3 {
 .resume .base .contact div span::after {
     content: "";
     position: absolute;
-    background: #fdd835;
+    background: $yellow;
     height: 1px;
     width: 0;
     bottom: 0;
@@ -193,7 +206,7 @@ h3 {
 }
 
 .resume .base .follow .box a:hover i {
-    background: #fdd835;
+    background: $yellow;
     border-radius: 5px;
     transform: rotate(45deg) scale(0.8);
 }
@@ -205,12 +218,12 @@ h3 {
 .resume .base .follow .box i {
     display: inline-block;
     font-size: 30px;
-    background: #ffb300;
+    background: $orange;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     line-height: 60px;
-    color: #283593;
+    color: $darker-blue;
     margin: 0 10px 10px 10px;
     transition-duration: 0.3s;
 }
@@ -222,12 +235,40 @@ h3 {
 .resume .base .follow .box i.fa::before {
     display: block;
 }
-
-.resume .func {
-    width: 100%;
-    padding: 30px;
+// mixins
+// scottnix.com/placement-of-media-queries/
+@mixin breakpoint($point) {
+    @if $point == medium {
+        @media only screen and (max-width: 768px)  { @content; }
+    }
+    @else if $point == large {
+        @media only screen and (min-width: 960px) { @content; }
+    }
+    @else if $point { // allows custom breakpoints
+        @media only screen and (min-width: $point) { @content; }
+    }
 }
 
+.resume .func {
+    width: 70%;
+    padding: 30px;
+
+    @include breakpoint(40em) {
+        display: inline;
+        margin: 1em 0 0;
+        .work{
+            width: 100%;
+            float: left;
+        }
+        .edu{
+            width: 100%;
+            float: right;
+        }
+        .skills-prog{
+            width: 100%;
+        }
+    }
+}
 .resume .func:hover>div {
     transition-duration: 0.5s;
 }
@@ -246,8 +287,8 @@ h3 {
 }
 
 .resume .func h3 i {
-    color: #283593;
-    background: #ffb300;
+    color: $darker-blue;
+    background: $orange;
     width: 42px;
     height: 42px;
     font-size: 20px;
@@ -257,11 +298,6 @@ h3 {
     vertical-align: middle;
     margin-right: 8px;
     transition-duration: 0.3s;
-}
-
-.resume .func .work,
-.resume .func .edu {
-    float: left;
 }
 
 .resume .func .work small,
@@ -280,27 +316,17 @@ h3 {
 
 .resume .func .work ul li:hover::before,
 .resume .func .edu ul li:hover::before {
-    -webkit-animation: circle 1.2s infinite;
     animation: circle 1.2s infinite;
 }
 
 .resume .func .work ul li:hover span,
 .resume .func .edu ul li:hover span {
-    color: #fdd835;
-}
-
-@-webkit-keyframes circle {
-    from {
-        box-shadow: 0 0 0 0px #fdd835;
-    }
-    to {
-        box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
-    }
+    color: $yellow;
 }
 
 @keyframes circle {
     from {
-        box-shadow: 0 0 0 0px #fdd835;
+        box-shadow: 0 0 0 0px $yellow;
     }
     to {
         box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
@@ -337,8 +363,8 @@ h3 {
 .resume .func .edu ul li::before {
     width: 7px;
     height: 7px;
-    border: 3px solid #ffffff;
-    background: #ffb300;
+    border: 3px solid $white;
+    background: $orange;
     border-radius: 50%;
     left: 3px;
     z-index: 1;
@@ -348,7 +374,7 @@ h3 {
 .resume .func .edu ul li::after {
     width: 3px;
     height: 100%;
-    background: #ffffff;
+    background: $white;
     left: 5px;
     top: 0;
 }
@@ -360,20 +386,21 @@ h3 {
 
 .resume .func .work {
     width: 48%;
-    background: #283593;
+    background: $darker-blue;
     padding: 15px;
     margin: 0 4% 15px 0;
 }
 
 .resume .func .edu {
     width: 48%;
-    background: #283593;
+    background: $darker-blue;
     padding: 15px;
+    margin-bottom: 15px;
 }
 
 .resume .func .skills-prog {
     clear: both;
-    background: #283593;
+    background: $darker-blue;
     padding: 15px;
 }
 
@@ -389,12 +416,12 @@ h3 {
 }
 
 .resume .func .skills-prog ul li:hover {
-    color: #fdd835;
+    color: $yellow;
 }
 
 .resume .func .skills-prog ul li:hover .skills-bar .bar {
-    background: #fdd835;
-    box-shadow: 0 0 0 1px #fdd835;
+    background: $yellow;
+    box-shadow: 0 0 0 1px $yellow;
 }
 
 .resume .func .skills-prog ul li span {
@@ -403,7 +430,7 @@ h3 {
 }
 
 .resume .func .skills-prog ul li .skills-bar {
-    background: #ffffff;
+    background: $white;
     height: 2px;
     width: calc(100% - 120px);
     position: relative;
@@ -414,14 +441,14 @@ h3 {
     position: absolute;
     top: -1px;
     height: 4px;
-    background: #ffb300;
-    box-shadow: 0 0 0 #ffb300;
+    background: $orange;
+    box-shadow: 0 0 0 $orange;
     border-radius: 5px;
 }
 
 .resume .func .skills-soft {
     clear: both;
-    background: #283593;
+    background: $darker-blue;
     padding: 15px;
     margin: 15px 0 0;
 }
@@ -437,7 +464,7 @@ h3 {
 }
 
 .resume .func .skills-soft ul li:hover svg .cbar {
-    stroke: #fdd835;
+    stroke: $yellow;
     stroke-width: 4px;
 }
 
@@ -454,12 +481,12 @@ h3 {
 
 .resume .func .skills-soft ul li svg circle {
     stroke-width: 1px;
-    stroke: #ffffff;
+    stroke: $white;
 }
 
 .resume .func .skills-soft ul li svg .cbar {
     stroke-width: 3px;
-    stroke: #ffb300;
+    stroke: $orange;
     stroke-linecap: round;
 }
 
@@ -477,7 +504,7 @@ h3 {
 }
 
 .resume .func .interests {
-    background: #283593;
+    background: $darker-blue;
     margin: 15px 0 0;
     padding: 15px;
 }
@@ -506,7 +533,7 @@ h3 {
 }
 
 .resume .func .interests-items div:hover span {
-    color: #fdd835;
+    color: $yellow;
     transition-duration: 0.3s;
 }
 
@@ -515,31 +542,10 @@ h3 {
     width: 60px;
     height: 60px;
     line-height: 60px;
-    color: #ffb300;
+    color: $orange;
     transition-duration: 0.3s;
 }
 
 .resume .func .interests-items div span {
     display: block;
-}
-
-/*Responsive*/
-@media screen and (max-width: 960px) {
-    body{
-        font-size: auto;
-    }
-
-    .resume .base {
-        width: auto;
-    }
-
-    .resume .func .work, .resume .func .edu{
-        width: auto;
-        float: none;
-    }
-
-    .resume .func .work{
-        padding: 15px 15px 15px 15px;
-    }
-    
 }
